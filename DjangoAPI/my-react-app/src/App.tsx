@@ -10,15 +10,18 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import PasswordResetRequest from './pages/PasswordReset/index.tsx';
 import PasswordResetConfirm from './pages/PasswordResetConfirm/index.tsx';
-
+import AddProductPage from './pages/product/create/index.tsx';
+import ProductListPage from './pages/product/ProductListPage';
+import EditProductPage from './pages/product/EditProductPage';
+ 
 const App = () => {
-
+ 
     return (
         <>
             <Routes>
                 <Route path={"/"} element={<Layout/>}>
                     <Route index element={<HomePage/>} />
-
+ 
                     <Route path={"categories"}>
                         <Route path={"create"} element={<CategoryCreatePage/>}/>
                     </Route>
@@ -29,21 +32,25 @@ const App = () => {
                         path="password-reset-confirm/:uid/:token"
                         element={<PasswordResetConfirm />}
                         />
-
+ 
                 </Route>
-
+                <Route path={"products"}>
+                    <Route index element={<ProductListPage/>}/>
+                    <Route path={"create"} element={<AddProductPage/>}/>
+                    <Route path={"edit/:id"} element={<EditProductPage/>}/>
+                </Route>
                 <Route path={"admin"} element={<AdminLayout />}>
-
+ 
                     <Route path="home" element={<AdminDashboardPage />}/>
-
+ 
                 </Route>
-
+ 
                 <Route path="*" element={<AdminNotFoundPage />} />
-
+ 
             </Routes>
-
+ 
         </>
     )
 }
-
+ 
 export default App

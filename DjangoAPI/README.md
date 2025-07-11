@@ -1,7 +1,5 @@
 py -m venv .venv
 
-.venv\Scripts\activate.bat
-
 python.exe -m pip install --upgrade pip
 
 pip install django
@@ -25,6 +23,7 @@ py manage.py createsuperuser
 admin
 
 Qwerty1-
+
 
 py manage.py runserver 4097
 

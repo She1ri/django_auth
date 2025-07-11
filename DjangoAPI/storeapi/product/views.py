@@ -181,7 +181,7 @@ class PasswordResetConfirmView(APIView):
         )
 
 # Продукти з фільтром по категорії
-class ProductViewSet(ReadOnlyModelViewSet):
+class ProductViewSet(ModelViewSet):
     queryset = Product.objects.prefetch_related('images').select_related('category')
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
